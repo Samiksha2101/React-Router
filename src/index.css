@@ -22,7 +22,10 @@ a{
   display: inline-block;
   margin: 10px;
   padding: 5px 10px;
-  color: #000;
+  /* color: #000; */
+}
+a.active{
+color: red;
 }
 .container{
   display: flex;
