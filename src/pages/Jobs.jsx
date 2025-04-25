@@ -6,10 +6,10 @@ function Jobs() {
   return (
     <div className='jobs'>
         {jobs.map((job)=>{
-            return <Link>
+            return <Link to={job.id} key={job.id}>
             <h4>{job.title}</h4>
             <p>{job.location}</p>
-            <p>{job.description}</p>
+            {/* <p>{job.description}</p> */}
             </Link>
         })}
     </div>
