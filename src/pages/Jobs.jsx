@@ -18,7 +18,16 @@ function Jobs() {
 
 export default Jobs
 
-export const jobLoader = async()=>{
-    const data = await fetch("http://localhost:5000/jobs")
-    return data.json();
-}
+export const jobLoader = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/jobs");
+  
+      if (!response.ok) {
+        throw new Error("Could not fetch job list");
+      }
+  
+      return await response.json();
+    } catch (error) {
+      throw new Error("Unable to connect to the job server");
+    }
+  };

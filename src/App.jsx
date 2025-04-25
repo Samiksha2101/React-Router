@@ -12,6 +12,7 @@ import NotFound from './components/NotFound'
 import JobsLayout from './layout/JobsLayout'
 import Jobs, { jobLoader } from './pages/Jobs'
 import JobDetails, { jobDetailsLoader } from './components/JobDetails'
+import Error from './components/Error'
 
 function App() {
   const router = createBrowserRouter(
@@ -25,7 +26,7 @@ function App() {
       <Route path='about' element={<About></About>}/>
       <Route path='products' element={<Products></Products>}/>
       <Route path='*' element={<NotFound/>}></Route>
-      <Route path='jobs' element={<JobsLayout/>}>
+      <Route path='jobs' element={<JobsLayout/>}errorElement={<Error/>}>
         <Route index element={<Jobs/>} loader={jobLoader}></Route>
         <Route path=':id' element={<JobDetails/>} loader={jobDetailsLoader} ></Route>
       </Route>
